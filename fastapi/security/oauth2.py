@@ -156,6 +156,7 @@ class OAuth2PasswordBearer(OAuth2):
             scheme_name=scheme_name,
             description=description,
             auto_error=auto_error,
+            token_header=token_header
         )
 
     async def __call__(self, request: Request) -> Optional[str]:
@@ -200,6 +201,7 @@ class OAuth2AuthorizationCodeBearer(OAuth2):
             scheme_name=scheme_name,
             description=description,
             auto_error=auto_error,
+            token_header=token_header
         )
 
     async def __call__(self, request: Request) -> Optional[str]:
