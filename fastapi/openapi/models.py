@@ -286,7 +286,6 @@ class SecuritySchemeType(Enum):
 class SecurityBase(BaseModel):
     type_: SecuritySchemeType = Field(..., alias="type")
     description: Optional[str] = None
-    name_: str = Field(..., alias="name")
 
     class Config:
         extra = "allow"
@@ -352,6 +351,7 @@ class OAuthFlows(BaseModel):
 class OAuth2(SecurityBase):
     type_ = Field(SecuritySchemeType.oauth2, alias="type")
     flows: OAuthFlows
+    name_: str = Field(..., alias="name")
 
 
 class OpenIdConnect(SecurityBase):
