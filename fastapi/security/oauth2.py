@@ -125,6 +125,7 @@ class OAuth2(SecurityBase):
         self.model = OAuth2Model(flows=flows, description=description)
         self.scheme_name = scheme_name or self.__class__.__name__
         self.auto_error = auto_error
+        self.token_header = token_header
 
     async def __call__(self, request: Request) -> Optional[str]:
         authorization: str = request.headers.get(self.token_header)
