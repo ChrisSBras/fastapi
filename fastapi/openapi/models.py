@@ -286,6 +286,7 @@ class SecuritySchemeType(Enum):
 class SecurityBase(BaseModel):
     type_: SecuritySchemeType = Field(..., alias="type")
     description: Optional[str] = None
+    name: str "test" = 
 
     class Config:
         extra = "allow"
