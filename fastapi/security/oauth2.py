@@ -122,7 +122,7 @@ class OAuth2(SecurityBase):
         auto_error: Optional[bool] = True,
         token_header: str = "Authorization"
     ):
-        self.model = OAuth2Model(flows=flows, description=description, name=token_header)
+        self.model = OAuth2Model(flows=flows, description=description, name=token_header, in="header")
         self.scheme_name = scheme_name or self.__class__.__name__
         self.auto_error = auto_error
         self.token_header = token_header
