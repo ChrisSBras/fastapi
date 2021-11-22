@@ -354,7 +354,7 @@ class OAuth2(SecurityBase):
     type_ = Field(SecuritySchemeType.oauth2, alias="type")
     flows: OAuthFlows
     name_: str = Field(..., alias="name")
-    in_: APIKeyIn = Field(..., alias="in")
+    in_: OAuthIn = Field(..., alias="in")
 
 
 class OpenIdConnect(SecurityBase):
