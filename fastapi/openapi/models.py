@@ -351,7 +351,7 @@ class OAuthIn(Enum):
     header = "header"
 
 class OAuth2(SecurityBase):
-    type_ = Field(SecuritySchemeType.oauth2, alias="type")
+    type_ = Field(SecuritySchemeType.apiKey, alias="type")
     flows: OAuthFlows
     name_: str = Field(..., alias="name")
     in_: OAuthIn = Field(..., alias="in")
