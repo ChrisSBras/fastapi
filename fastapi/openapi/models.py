@@ -347,6 +347,8 @@ class OAuthFlows(BaseModel):
     class Config:
         extra = "allow"
 
+class OAuthIn(Enum):
+    header = "header"
 
 class OAuth2(SecurityBase):
     type_ = Field(SecuritySchemeType.oauth2, alias="type")

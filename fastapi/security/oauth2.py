@@ -3,6 +3,7 @@ from typing import Any, Dict, List, Optional, Union
 from fastapi.exceptions import HTTPException
 from fastapi.openapi.models import OAuth2 as OAuth2Model
 from fastapi.openapi.models import OAuthFlows as OAuthFlowsModel
+from fastapi.openapi.models import OAuthIn
 from fastapi.param_functions import Form
 from fastapi.security.base import SecurityBase
 from fastapi.security.utils import get_authorization_scheme_param
@@ -122,7 +123,7 @@ class OAuth2(SecurityBase):
         auto_error: Optional[bool] = True,
         token_header: str = "Authorization"
     ):
-        self.model = OAuth2Model(flows=flows, description=description, name=token_header, in="header")
+        self.model = OAuth2Model(flows=flows, description=description, name=token_header, **{"in": OAuthIn.header})
         self.scheme_name = scheme_name or self.__class__.__name__
         self.auto_error = auto_error
         self.token_header = token_header
